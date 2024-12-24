@@ -1,4 +1,12 @@
-.main_container {
-  min-height: 100vh !important;
-  background-color: red !important;
+.sigup_bg {
+  background: url("./assets//images/lms_backgroud.jpg") center no-repeat;
+  background-size: cover;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.logo {
+  border-radius: 50%;
 }
