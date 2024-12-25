@@ -1,12 +1,24 @@
 import Form from "react-bootstrap/Form";
-
+import useForm from "../hooks/useForm";
 import React from "react";
 
-const CustomInput = ({ label, type, name, placeholder }) => {
+const CustomInput = ({
+  label,
+  type,
+  name,
+  placeholder,
+  handleOnChange,
+  required,
+}) => {
   return (
-    <Form.Group className="p-2">
+    <Form.Group required className="p-2" onChange={(e) => handleOnChange(e)}>
       <Form.Label>{label}</Form.Label>
-      <Form.Control type={type} placeholder={placeholder} />
+      <Form.Control
+        type={type}
+        required={required}
+        name={name}
+        placeholder={placeholder}
+      />
     </Form.Group>
   );
 };

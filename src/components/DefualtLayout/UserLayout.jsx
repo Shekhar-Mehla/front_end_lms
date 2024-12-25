@@ -6,14 +6,11 @@ import SideBar from "../SideBar";
 import { useState } from "react";
 
 const UserLayout = () => {
-  const [isLogIn, setIsLogin] = useState(true);
+  const [isLogIn, setIsLogin] = useState();
 
   return (
-    <Container
-      className="bg-dark"
-      style={{ minHeight: "100vh", maxWidth: "100vw" }}
-    >
-      <Row className="h-15">
+    <Container className="bg-dark">
+      <Row>
         <Col>
           <Header></Header>
         </Col>

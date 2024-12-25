@@ -18,23 +18,25 @@ import Authorization from "./components/Authorization.jsx";
 
 const App = () => {
   return (
-    <Routes>
-      {/* public routes */}
-      <Route path="/" element={<DefulatLayout></DefulatLayout>}>
-        <Route index element={<Home></Home>}></Route>
-        <Route path="login" element={<SingIn></SingIn>}></Route>
-        <Route path="register" element={<SignUp></SignUp>}></Route>
-      </Route>
-      {/* private routes */}( (
-      {/* <Route path="/user" element={<UserLayout></UserLayout>}>
+    <div className="wrapper bg-dark d-flex flex-wrap flex-column">
+      <Routes>
+        {/* public routes */}
+        <Route path="/" element={<DefulatLayout></DefulatLayout>}>
+          <Route index element={<Home></Home>}></Route>
+          <Route path="login" element={<SingIn></SingIn>}></Route>
+          <Route path="register" element={<SignUp></SignUp>}></Route>
+        </Route>
+        {/* private routes */}( (
+        {/* <Route path="/user" element={<UserLayout></UserLayout>}>
         <Route index element={<Dashboard></Dashboard>}></Route>
         <Route path="borrow-history" element={<Borrow></Borrow>}></Route>
         <Route path="reviews" element={<Review></Review>}></Route>
         <Route path="profile" element={<UserProfile></UserProfile>}></Route>
         <Route path="user-list" element={<UserList></UserList>}></Route>
       </Route> */}
-      ) )
-    </Routes>
+        ) )
+      </Routes>
+    </div>
   );
 };
 

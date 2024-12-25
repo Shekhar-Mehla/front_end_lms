@@ -6,12 +6,12 @@ import { Container } from "react-bootstrap";
 
 const DefulatLayout = () => {
   return (
-    <div className="bg-dark p-3 text-white defaultLayout container-fluid">
-      <Header className=""></Header>
+    <div className="bg-dark d-flex  flex-column  defaultLayout ">
+      <Header></Header>
       <main>
         <Outlet></Outlet>
       </main>
-      <Footer className=""></Footer>
+      <Footer className="footer"></Footer>
     </div>
   );
 };

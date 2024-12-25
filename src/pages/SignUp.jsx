@@ -2,20 +2,28 @@ import React from "react";
 import CustomInput from "../components/CustomInput";
 import { Card, Col, Form, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useForm from "../hooks/useForm";
+
 const SignUp = () => {
+  const { handleOnChange, form, emailError } = useForm({});
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
   const inputfild = [
     {
       label: "Given Name*",
       type: "text",
       name: "FName",
-      placeholder: "Enter your Name",
+      placeholder: "Given Name",
       required: true,
     },
     {
       label: "Family Name*",
       type: "text",
       name: "LName",
-      placeholder: "Enter your Name",
+      placeholder: "Family Name",
       required: true,
     },
     {
@@ -48,24 +56,43 @@ const SignUp = () => {
   ];
   return (
     <div className="sigup_bg">
-      <Row className="d-flex shadow  mb-2  justify-content-center align-items-center">
-        <Col md={6} sm={10}>
+      <Row className="shadow m-5  d-flex  justify-content-center align-items-center">
+        <Col md={3}>
           <Card
-            className="mt-3 p-3"
-            style={{ backgroundColor: "rgb(0 0 0 / 30%)", color: " #e1f8fe" }}
+            className="d-flex flex-wrap"
+            style={{
+              backgroundColor: "rgb(0 0 0 / 30%)",
+              color: " #e1f8fe",
+            }}
           >
             <h3 className="p-2 text-center fw-bolder">
               Welcome to your local Library!
             </h3>
             <hr></hr>
-            <Form>
+            <Form
+              onSubmit={(e) => {
+                handleOnSubmit(e);
+              }}
+              className="d-flex flex-column flex-wrap "
+            >
               {inputfild.map((item) => (
-                <CustomInput key={item.name} {...item}></CustomInput>
+                <CustomInput
+                  key={item.name}
+                  {...item}
+                  handleOnChange={handleOnChange}
+                ></CustomInput>
               ))}
               <Button type="submit" className="p-2 w-100  mb-2 ">
                 Sign Up
               </Button>
             </Form>
+
+            <Card.Text>
+              {emailError.map((item) => (
+                <li className="emailError">{item}</li>
+              ))}
+            </Card.Text>
+
             <Card.Text className="text-center">
               Already registered ?{" "}
               <Link className="text-style-none" to="/login">
