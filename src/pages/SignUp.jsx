@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
 
 const SignUp = () => {
-  const { handleOnChange, form, emailError } = useForm({});
+  const { handleOnChange, form, inputError } = useForm();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -88,9 +88,10 @@ const SignUp = () => {
             </Form>
 
             <Card.Text>
-              {emailError.map((item) => (
-                <li className="emailError">{item}</li>
-              ))}
+              {inputError.length &&
+                inputError.map((item) => (
+                  <li className="emailError">{item}</li>
+                ))}
             </Card.Text>
 
             <Card.Text className="text-center">

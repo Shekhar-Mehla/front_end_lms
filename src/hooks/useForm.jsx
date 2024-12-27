@@ -1,25 +1,37 @@
 import React, { useEffect, useState } from "react";
 const initial_state = {};
-import emailvalidator from "../Utility/validators/emailvalidator.js";
+import { inputValidator } from "../Utility/validators/InputValidator.jsx";
 
 // handle on change
 const handleOnChange = ({ e, setForm, form }) => {
   const { value, name } = e.target;
 
-  return setForm({ ...form, [name]: value });
-};
+  setForm({ ...form, [name]: value });
 
+  return;
+};
+const initistate = {
+  email: "emxample@gmail.com",
+  phone: "349569687s",
+  password: "Abce@1",
+  confirmPassword: "Abce@1",
+};
 const useForm = () => {
-  const [form, setForm] = useState({});
-  const [emailError, setEmailError] = useState([]);
+  const [form, setForm] = useState(initistate);
+  const [inputError, setInputError] = useState([]);
 
   useEffect(() => {
-    const validemail = emailvalidator(form.email);
-    setEmailError(validemail);
-  }, [form.email]);
-
+    const { error, type } = inputValidator(
+      form.email,
+      form.phone,
+      form.password,
+      form.confirmPassword
+    );
+    setInputError(error);
+  }, [form.email, form.password, form.phone, form.confirmPassword]);
+  console.log(inputError);
   return {
-    emailError,
+    inputError,
     form,
     initial_state,
     setForm,

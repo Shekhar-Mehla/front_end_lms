@@ -19,6 +19,7 @@ const CustomInput = ({
         name={name}
         placeholder={placeholder}
       />
+      <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
     </Form.Group>
   );
 };
