@@ -1,26 +1,19 @@
-import Form from "react-bootstrap/Form";
-import useForm from "../hooks/useForm";
 import React from "react";
+import FormGroup from "react-bootstrap/esm/FormGroup";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
-const CustomInput = ({
-  label,
-  type,
-  name,
-  placeholder,
-  handleOnChange,
-  required,
-}) => {
+const CustomInput = ({ label, validationError, ...rest }) => {
   return (
-    <Form.Group required className="p-2" onChange={(e) => handleOnChange(e)}>
-      <Form.Label>{label}</Form.Label>
-      <Form.Control
-        type={type}
-        required={required}
-        name={name}
-        placeholder={placeholder}
-      />
-      <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-    </Form.Group>
+    <>
+      <Form.Label htmlFor="basic-url">{label}</Form.Label>
+      <div hasValidation={true}>
+        <Form.Control
+          {...rest}
+          isInvalid={validationError.length > 0 ? true : false}
+        />
+      </div>
+    </>
   );
 };
 

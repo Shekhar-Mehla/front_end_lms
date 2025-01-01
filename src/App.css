@@ -35,3 +35,14 @@ a {
   font-size: larger;
   font-weight: 400;
 }
+.relative {
+  position: relative;
+}
+.email {
+  position: absolute;
+  top: 390px;
+  left: 100px;
+}
+.bg-transaparent {
+  background-color: rgba(26, 18, 18, 0.397);
+}
