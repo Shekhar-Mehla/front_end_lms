@@ -7,25 +7,32 @@ const handleOnChange = ({ e, setForm, form }) => {
   console.log(e);
   const { value, name } = e.target;
 
-  setForm({ ...form, [name]: value });
-
-  return;
+  return setForm({ ...form, [name]: value });
 };
 
 const useForm = (initial_state) => {
   const [form, setForm] = useState(initial_state);
   const [validationError, setValidationError] = useState([]);
-  console.log(form);
+
   useEffect(() => {
     const error = inputValidator(
-      form.email,
       form.phone,
+      form.email,
       form.password,
-      form.confirmPassword
+      form.confirmpassword,
+      form.FName,
+      form.LName
     );
 
     setValidationError(error);
-  }, [form.password, form.email, form.phone, form.confirmPassword]);
+  }, [
+    form.phone,
+    form.email,
+    form.password,
+    form.confirmpassword,
+    form.FName,
+    form.LName,
+  ]);
 
   return {
     form,

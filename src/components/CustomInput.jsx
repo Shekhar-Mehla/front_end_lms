@@ -1,19 +1,24 @@
 import React from "react";
-import FormGroup from "react-bootstrap/esm/FormGroup";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 
-const CustomInput = ({ label, validationError, ...rest }) => {
+import Form from "react-bootstrap/Form";
+
+const CustomInput = ({
+  label,
+
+  name,
+
+  ...rest
+}) => {
   return (
-    <>
-      <Form.Label htmlFor="basic-url">{label}</Form.Label>
-      <div hasValidation={true}>
-        <Form.Control
-          {...rest}
-          isInvalid={validationError.length > 0 ? true : false}
-        />
+    <div className="inputsize">
+      <Form.Label className="fw-bolder">
+        {label}
+        <span className="text-danger fw-bolder ">*</span>
+      </Form.Label>
+      <div>
+        <Form.Control {...rest} name={name} />
       </div>
-    </>
+    </div>
   );
 };
 

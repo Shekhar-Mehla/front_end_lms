@@ -1,4 +1,4 @@
-const emailValidator = (email = "seeeee11@gmaml.com") => {
+const emailValidator = (email) => {
   const error = [];
 
   // Regular expression for a valid email pattern
@@ -10,20 +10,23 @@ const emailValidator = (email = "seeeee11@gmaml.com") => {
   return error;
 };
 
-const phoneValidator = (phone = "4567654444") => {
+const phoneValidator = (phone) => {
   const error = [];
-  // Regular expression for a valid phone pattern
 
-  // If the phone doesn't match the pattern, push an error
-  /[-!@#$%^&*()_=]/.test(phone) && !/^[+0-9]{9,12}$/;
-  phone.length < 9 &&
-    error.push(
-      "Phone number must be at least 9 characters long and specail character is not allowed except +."
-    );
+  // If the phone contains any invalid characters or doesn't match the length requirement, add error
+  if (!/[0-9+]/.test(phone)) {
+    error.push("Phone number should only contain digits.");
+  }
+
+  // Check if the phone number length is less than 9
+  if (phone.length < 9 || phone.length >= 12) {
+    error.push("Phone number must be at least 9 characters long.");
+  }
 
   return error;
 };
-const passwordValidator = (password = "", conformPassword = "") => {
+
+const passwordValidator = (password, confirmpassword) => {
   const error = [];
   // Regular expression for a valid password pattern
   !/[0-9]/.test(password) &&
@@ -36,33 +39,60 @@ const passwordValidator = (password = "", conformPassword = "") => {
     error.push(
       "Password must include atleast one special character from !@#$%^&*()_+"
     );
-  password.length < 6 &&
+  !password.length == 6 &&
     error.push("Password length must be atleast 6 characters long");
 
-  if (conformPassword.length > 0) {
-    password != conformPassword &&
+  if (confirmpassword != "") {
+    console.log("PASSWORD OS NOT ");
+    password != confirmpassword &&
       error.push("Confirmed password did not match");
   }
   // If the email doesn't match the pattern, push an error
 
   return error;
 };
+const nameChecker = (name) => {
+  const error = [];
 
-export const inputValidator = (email, phone, password, conformPassword) => {
+  !/[a-zA-Z]/.test(name) && error.push("invalid Name ");
+  /[0-9!@#$%^&*()_+]/.test(name) &&
+    error.push("Name cannot include any digit or special character ");
+
+  name.length < 3 && error.push("Name must must be atleast 6 characters long ");
+  return error;
+};
+
+export const inputValidator = (
+  phone,
+  email,
+  password,
+  confirmpassword,
+  FName,
+  LName
+) => {
   const emailError = emailValidator(email);
   const phoneError = phoneValidator(phone);
 
-  const passwordError = passwordValidator(password, conformPassword);
+  const passwordError = passwordValidator(password, confirmpassword);
+  const fisrtNameError = nameChecker(FName);
+  const lastNameError = nameChecker(LName);
+  console.log(lastNameError);
 
   if (emailError && email != "") {
-    return emailValidator(email);
+    return emailError;
+  }
+  if (fisrtNameError && FName != "") {
+    return fisrtNameError;
+  }
+  if (lastNameError && LName != "") {
+    return lastNameError;
   }
 
   if (phoneError && phone != "") {
-    return phoneValidator(phone);
+    return phoneError;
   }
-  if (passwordError && password != "") {
-    return passwordValidator(password, conformPassword);
+  if (password != "") {
+    return passwordError;
   }
   return [];
 };
