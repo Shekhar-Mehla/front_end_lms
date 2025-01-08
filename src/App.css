@@ -8,6 +8,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+main {
+  height: 80vh;
+}
 
 .signInHeight {
   height: 80vh;

@@ -8,7 +8,7 @@ const DefulatLayout = () => {
   return (
     <div className="bg-dark d-flex  flex-column  defaultLayout ">
       <Header></Header>
-      <main>
+      <main >
         <Outlet></Outlet>
       </main>
       <Footer className="footer"></Footer>

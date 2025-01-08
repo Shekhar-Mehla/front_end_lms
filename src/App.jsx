@@ -15,6 +15,7 @@ import {
 import DefulatLayout from "./components/DefualtLayout/DefulatLayout.jsx";
 import UserLayout from "./components/DefualtLayout/UserLayout.jsx";
 import Authorization from "./components/Authorization.jsx";
+import ActivateUser from "./pages/ActivateUser.jsx";
 
 const App = () => {
   return (
@@ -25,6 +26,12 @@ const App = () => {
           <Route index element={<Home></Home>}></Route>
           <Route path="login" element={<SingIn></SingIn>}></Route>
           <Route path="register" element={<SignUp></SignUp>}></Route>
+          <Route
+            path="activate-user"
+            element={
+              <ActivateUser className="text-white bg-red"></ActivateUser>
+            }
+          ></Route>
         </Route>
         {/* private routes */}( (
         {/* <Route path="/user" element={<UserLayout></UserLayout>}>

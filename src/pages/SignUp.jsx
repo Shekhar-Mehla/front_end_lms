@@ -6,9 +6,10 @@ import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
 import CustomInput from "../components/CustomInput";
 import useForm from "../hooks/useForm";
+import { resgisterUser } from "../services/api";
 
 const SignUp = () => {
-  const { handleOnChange, validationError } = useForm({
+  const { handleOnChange, validationError, form } = useForm({
     FName: "",
     LName: "",
     phone: "",
@@ -64,7 +65,9 @@ const SignUp = () => {
     },
   ];
   const handleSubmit = (e) => {
-    console.log(e);
+    e.preventDefault();
+    const result = resgisterUser(form);
+    console.log(result);
   };
 
   return (
