@@ -7,17 +7,18 @@ import Stack from "react-bootstrap/Stack";
 import CustomInput from "../components/CustomInput";
 import useForm from "../hooks/useForm";
 import { resgisterUser } from "../services/api";
+const initialState = {
+  FName: "ddd",
+  LName: "df",
+  phone: "12345",
+  email: "a@gmail.com",
+  confirmpassword: "Aa123$",
 
+  password: "Aa123$",
+};
 const SignUp = () => {
-  const { handleOnChange, validationError, form, setForm } = useForm({
-    FName: "",
-    LName: "",
-    phone: "",
-    email: "",
-    password: "",
-
-    confirmpassword: "",
-  });
+  const { handleOnChange, validationError, form, setForm } =
+    useForm(initialState);
 
   const signUpInputFields = [
     {
@@ -70,15 +71,7 @@ const SignUp = () => {
       value: form.confirmpassword,
     },
   ];
-  const initialState = {
-    FName: "",
-    LName: "",
-    phone: "",
-    email: "",
-    confirmpassword: "",
 
-    password: "",
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = resgisterUser(form);

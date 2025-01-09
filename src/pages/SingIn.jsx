@@ -4,10 +4,11 @@ import { Card, Col, Form, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import InputValidatorTooltip from "../components/tooltips/InputValidatorTooltip";
+import { logInUser } from "../services/api.js";
 const SignIn = () => {
   const { form, handleOnChange, setForm } = useForm({
-    email: "123",
-    password: "1234",
+    email: "a@a",
+    password: "123",
   });
   const signInInput = [
     {
@@ -29,15 +30,22 @@ const SignIn = () => {
     },
   ];
   const initialState = {
-    email: "",
+    email: "a@a",
 
-    password: "",
+    password: "123",
   };
 
   // on submit handler
-  const onSubmitHnadle = (e) => {
+  const onSubmitHnadle = async (e) => {
     e.preventDefault();
     console.log(e);
+    const response = await logInUser(form);
+    const { accessJwt, refreshJwt } = response.payload;
+    if (accessJwt && refreshJwt) {
+      localStorage.setItem("refreshJwt", refreshJwt);
+      sessionStorage.setItem("accessJwt", accessJwt);
+    }
+
     setForm(initialState);
   };
   return (

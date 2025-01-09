@@ -16,6 +16,7 @@ import DefulatLayout from "./components/DefualtLayout/DefulatLayout.jsx";
 import UserLayout from "./components/DefualtLayout/UserLayout.jsx";
 import Authorization from "./components/Authorization.jsx";
 import ActivateUser from "./pages/ActivateUser.jsx";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
       </Route> */}
         ) )
       </Routes>
+      <ToastContainer />
     </div>
   );
 };
