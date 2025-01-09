@@ -71,27 +71,26 @@ export const inputValidator = (
   LName
 ) => {
   const emailError = emailValidator(email);
-  const phoneError = phoneValidator(phone);
+  const phoneError = phoneValidator((phone = ""));
 
   const passwordError = passwordValidator(password, confirmpassword);
-  const fisrtNameError = nameChecker(FName);
-  const lastNameError = nameChecker(LName);
-  console.log(lastNameError);
+  const fisrtNameError = nameChecker((FName = ""));
+  const lastNameError = nameChecker((LName = ""));
 
-  if (emailError && email != "") {
+  if (emailError.length && email != "") {
     return emailError;
   }
-  if (fisrtNameError && FName != "") {
+  if (fisrtNameError.length && FName != "") {
     return fisrtNameError;
   }
-  if (lastNameError && LName != "") {
+  if (lastNameError.length && LName != "") {
     return lastNameError;
   }
 
-  if (phoneError && phone != "") {
+  if (phoneError.length && phone != "") {
     return phoneError;
   }
-  if (password != "") {
+  if ((passwordError.length && password != "") || confirmpassword != "") {
     return passwordError;
   }
   return [];

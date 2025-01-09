@@ -10,13 +10,13 @@ const CustomInput = ({
   ...rest
 }) => {
   return (
-    <div className="inputsize">
-      <Form.Label className="fw-bolder">
+    <div className="card-text">
+      <Form.Label className="fw-bolder ">
         {label}
         <span className="text-danger fw-bolder ">*</span>
       </Form.Label>
       <div>
-        <Form.Control {...rest} name={name} />
+        <Form.Control className="" {...rest} name={name} />
       </div>
     </div>
   );

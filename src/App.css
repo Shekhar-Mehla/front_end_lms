@@ -1,6 +1,8 @@
 .sigup_bg {
-  background: url("./assets//images/lms_backgroud.jpg") center no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+    url("./assets//images/lms_backgroud.jpg");
   background-size: cover;
+  background-position: center;
 }
 
 * {
@@ -47,5 +49,85 @@ a {
   left: 100px;
 }
 .bg-transaparent {
-  background-color: rgba(26, 18, 18, 0.397);
+  background-color: rgb(47 58 45 / 69%) !important;
+}
+/* General link style */
+.link {
+  font-size: 14px; /* Slightly smaller text */
+  color: #66cc33; /* Soft green color for visibility */
+  text-decoration: none; /* Remove underline by default */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Hover effect */
+.link:hover {
+  color: #32cc12; /* Darker green on hover */
+  text-decoration: underline; /* Underline on hover to signify it's clickable */
+}
+
+/* Focus effect for accessibility */
+.link:focus {
+  outline: none; /* Remove default outline */
+  color: #32cc12; /* Ensure focus state is visible */
+  text-decoration: underline; /* Underline on focus as well */
+}
+
+.CardBackground {
+  background-color: rgb(47 58 45 / 69%) !important;
+}
+.card-text {
+  color: #ddd;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+.card-title {
+  color: #39ff14; /* Darker shade for the title for emphasis */
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Sleek and muted button design */
+.submit-btn {
+  width: 100%;
+  padding: 10px; /* Compact padding */
+  font-size: 14px; /* Smaller text for consistency */
+  font-weight: 600; /* Medium weight for better visibility */
+  color: #333; /* Darker text for better contrast */
+  background-color: #66cc33; /* Muted green background */
+  border: none; /* No border for a clean look */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for a more subtle interaction */
+.submit-btn:hover {
+  background-color: #5cbf2a; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Focus effect for accessibility */
+.submit-btn:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 4px rgba(57, 255, 20, 0.3); /* Soft green glow */
+}
+
+/* Button text color when focused */
+.submit-btn:focus {
+  color: #fff; /* White text on focus for a clean, visible look */
+}
+.submit-btn:disabled {
+  background-color: #d3d3d3; /* Keep the same grey color for disabled button */
+  color: #a9a9a9;
+}
+.form-label {
+  color: #34ec0e;
+}
+.form-control {
+  background-color:#86b77a;
 }

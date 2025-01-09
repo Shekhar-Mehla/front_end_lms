@@ -5,54 +5,73 @@ import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import InputValidatorTooltip from "../components/tooltips/InputValidatorTooltip";
 const SignIn = () => {
-  const { form } = useForm();
+  const { form, handleOnChange, setForm } = useForm({
+    email: "123",
+    password: "1234",
+  });
   const signInInput = [
     {
-      label: "Email*",
+      label: "Email",
       type: "email",
       name: "email",
       placeholder: "Enter email",
       required: true,
+      value: form.email,
     },
 
     {
-      label: "Password*",
+      label: "Password",
       type: "password",
       name: "password",
       placeholder: "*****",
       required: true,
+      value: form.password,
     },
   ];
+  const initialState = {
+    email: "",
+
+    password: "",
+  };
+
+  // on submit handler
+  const onSubmitHnadle = (e) => {
+    e.preventDefault();
+    console.log(e);
+    setForm(initialState);
+  };
   return (
-    <div className="sigup_bg signInHeight   sign d-flex shadow  mb-2  justify-content-center align-items-center  ">
+    <div className="sigup_bg signInHeight  shadow d-flex   mb-2  justify-content-center align-items-center  ">
       <Row className="">
         <Col>
-          <Card
-            className="mt-3  mb-3 p-5"
-            style={{ backgroundColor: "rgb(0 0 0 / 50%)", color: " #e1f8fe" }}
-          >
-            <h3 className="p-2 text-center fw-bolder">
+          <Card className="mt-3 CardBackground mb-3 p-5">
+            <h3 className="p-2 text-center card-title fw-bolder">
               Welcome to your local Library!
             </h3>
-            <hr></hr>
-            <Form>
+            <hr className="text-white"></hr>
+            <Form onSubmit={onSubmitHnadle}>
               {signInInput.map((item) => (
-                <CustomInput key={item.name} {...item}></CustomInput>
+                <CustomInput
+                  className="card-text"
+                  key={item.name}
+                  {...item}
+                  onChange={handleOnChange}
+                ></CustomInput>
               ))}
-              <Button type="submit" className="p-2 w-100  mb-2 ">
-                Sign Up
+              <Button type="submit" className="submit-btn">
+                Sign In
               </Button>
             </Form>
             <Card.Text className="me-auto">
-              dont have account ?{" "}
-              <Link className="text-style-none" to="/register">
+              dont have account?{" "}
+              <Link className="link" to="/register">
                 Register Now
               </Link>{" "}
-              <Link className="text-style-none" to="/register"></Link>{" "}
+              <Link className="link" to="/register"></Link>{" "}
             </Card.Text>
             <Card.Text className="me-atuo  ">
-              Forgot password ?{" "}
-              <Link to="forgot-password " className="">
+              Forgot password?{" "}
+              <Link to="forgot-password " className="link">
                 Reset Now
               </Link>
             </Card.Text>
