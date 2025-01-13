@@ -6,9 +6,9 @@ import { Container } from "react-bootstrap";
 
 const DefulatLayout = () => {
   return (
-    <div className="bg-dark d-flex  flex-column  defaultLayout ">
+    <div className="wrapper">
       <Header></Header>
-      <main >
+      <main className="main-content">
         <Outlet></Outlet>
       </main>
       <Footer className="footer"></Footer>

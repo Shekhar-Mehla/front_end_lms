@@ -1,7 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Navbar,
+  Nav,
+} from "react-bootstrap";
 
 import Stack from "react-bootstrap/Stack";
 import CustomInput from "../components/CustomInput";
@@ -79,41 +86,48 @@ const SignUp = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center sigup_bg py-3 w-100  ">
-      <Form
-        className="  card CardBackground shadow flex-wrap px-3 text-white "
-        onSubmit={handleSubmit}
+    <Container fluid>
+      <Row
+        className="justify-content-center align-items-center"
+        style={{ height: "100vh" }}
       >
-        <h2 className="text-center mt-3 card-title">Welcome to the Family </h2>
-        <hr />
-        <Stack gap={1} className="  ">
-          {signUpInputFields.map((item) => (
-            <CustomInput
-              className=""
-              key={item.name}
-              {...item}
-              onChange={handleOnChange}
-            ></CustomInput>
-          ))}
-          {console.log(validationError)}
-          <Button
-            type="submit"
-            disabled={validationError.length > 0 ? true : false}
-            className="submit-btn"
-          >
-            Sign Up
-          </Button>
-          <div>
-            {validationError.length > 0 &&
-              validationError.map((error, i) => (
-                <li className="bg-danger rounded-2 px-2 py-2" key={i}>
-                  {error}
-                </li>
-              ))}
+        {" "}
+        <Col md={8} lg={4}>
+          <div className=" form-wrapper">
+            <h2 className="typing-effect">Welcome to the Family </h2>
+            <hr />
+            <Form className="   " onSubmit={handleSubmit}>
+              <Stack gap={1} className="  ">
+                {signUpInputFields.map((item) => (
+                  <CustomInput
+                    className=""
+                    key={item.name}
+                    {...item}
+                    onChange={handleOnChange}
+                  ></CustomInput>
+                ))}
+                {console.log(validationError)}
+                <Button
+                  type="submit"
+                  disabled={validationError.length > 0 ? true : false}
+                  className="submit-btn"
+                >
+                  Sign Up
+                </Button>
+                <div>
+                  {validationError.length > 0 &&
+                    validationError.map((error, i) => (
+                      <li className="bg-danger rounded-2 px-2 py-2" key={i}>
+                        {error}
+                      </li>
+                    ))}
+                </div>
+              </Stack>
+            </Form>
           </div>
-        </Stack>
-      </Form>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -10,15 +10,14 @@ const CustomInput = ({
   ...rest
 }) => {
   return (
-    <div className="card-text">
-      <Form.Label className="fw-bolder ">
+    <Form.Group className="form-group">
+      <Form.Label className="text-light ">
         {label}
         <span className="text-danger fw-bolder ">*</span>
       </Form.Label>
-      <div>
-        <Form.Control className="" {...rest} name={name} />
-      </div>
-    </div>
+
+      <Form.Control className="" {...rest} name={name} />
+    </Form.Group>
   );
 };
 

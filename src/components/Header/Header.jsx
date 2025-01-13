@@ -11,38 +11,42 @@ import { FaUserEdit } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <Navbar expand="lg" data-bs-theme="dark" className="py-1 px-2">
-      <Navbar.Brand href="/" className="text-white">
-        <img src={logo} width={80} className="logo " alt="library logo" />
-      </Navbar.Brand>
-      <Navbar.Toggle
-        aria-controls="basic-navbar-nav "
-        className=" text-white"
-      />
+    <header className="header">
+      {" "}
+      <Navbar expand="lg" bg="transparent">
+        <Navbar.Brand href="/" className="text-white">
+          <img src={logo} width={80} className="logo " alt="library logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav "
+          className=" text-white"
+        />
 
-      <Navbar.Collapse id="basic-navbar-nav" className="">
-        <Nav className="ms-auto px-3 d-flex gap-3">
-          <Link className="nav-link text-white" to="/">
-            <FaHome /> Home
-          </Link>
-          <Link className="nav-link text-white " to="/login">
-            <FaSignInAlt /> Sign in
-          </Link>
-          <Link className="nav-link text-white" to="/register">
-            <FaUserEdit /> Sign Up
-          </Link>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-1"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+        <Navbar.Collapse id="basic-navbar-nav" className="">
+          <Nav className="ms-auto px-3 d-flex gap-3">
+            <Link className="nav-link text-white" to="/">
+              <FaHome /> Home
+            </Link>
+            <Link className="nav-link text-white " to="/login">
+              <FaSignInAlt /> Sign in
+            </Link>
+            <Link className="nav-link text-white" to="/register">
+              <FaUserEdit /> Sign Up
+            </Link>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-1"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      
+    </header>
   );
 };
 

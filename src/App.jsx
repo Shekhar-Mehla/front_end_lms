@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./App.css";
+
+
 import { Route, Routes } from "react-router-dom";
 import {
   Book,
@@ -18,35 +19,52 @@ import Authorization from "./components/Authorization.jsx";
 import ActivateUser from "./pages/ActivateUser.jsx";
 import { ToastContainer } from "react-toastify";
 
-const App = () => {
+// const App = () => {
+//   return (
+//     <div className="wrapper bg-dark d-flex flex-wrap flex-column">
+//       <Routes>
+//         {/* public routes */}
+//         <Route path="/" element={<DefulatLayout></DefulatLayout>}>
+//           <Route index element={<Home></Home>}></Route>
+//           <Route path="login" element={<SingIn></SingIn>}></Route>
+//           <Route path="register" element={<SignUp></SignUp>}></Route>
+//           <Route
+//             path="activate-user"
+//             element={
+//               <ActivateUser className="text-white bg-red"></ActivateUser>
+//             }
+//           ></Route>
+//         </Route>
+//         {/* private routes */}( (
+//         {/* <Route path="/user" element={<UserLayout></UserLayout>}>
+//         <Route index element={<Dashboard></Dashboard>}></Route>
+//         <Route path="borrow-history" element={<Borrow></Borrow>}></Route>
+//         <Route path="reviews" element={<Review></Review>}></Route>
+//         <Route path="profile" element={<UserProfile></UserProfile>}></Route>
+//         <Route path="user-list" element={<UserList></UserList>}></Route>
+//       </Route> */}
+//         ) )
+//       </Routes>
+//       <ToastContainer />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+import { Alert } from "@nextui-org/react";
+
+export default function App() {
   return (
-    <div className="wrapper bg-dark d-flex flex-wrap flex-column">
-      <Routes>
-        {/* public routes */}
-        <Route path="/" element={<DefulatLayout></DefulatLayout>}>
-          <Route index element={<Home></Home>}></Route>
-          <Route path="login" element={<SingIn></SingIn>}></Route>
-          <Route path="register" element={<SignUp></SignUp>}></Route>
-          <Route
-            path="activate-user"
-            element={
-              <ActivateUser className="text-white bg-red"></ActivateUser>
-            }
-          ></Route>
-        </Route>
-        {/* private routes */}( (
-        {/* <Route path="/user" element={<UserLayout></UserLayout>}>
-        <Route index element={<Dashboard></Dashboard>}></Route>
-        <Route path="borrow-history" element={<Borrow></Borrow>}></Route>
-        <Route path="reviews" element={<Review></Review>}></Route>
-        <Route path="profile" element={<UserProfile></UserProfile>}></Route>
-        <Route path="user-list" element={<UserList></UserList>}></Route>
-      </Route> */}
-        ) )
-      </Routes>
-      <ToastContainer />
+    <div className="flex flex-col gap-4 w-full">
+      {["solid", "bordered", "flat", "faded"].map((variant) => (
+        <Alert
+          key={variant}
+          color="secondary"
+          title={`This is a ${variant} variant alert`}
+          variant={variant}
+        />
+      ))}
     </div>
   );
-};
-
-export default App;
+}
