@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:8000/api/v1";
+const baseUrl = import.meta.env.VITE_BASE_URL_BACKEND;
 
 const apihelper = async ({ method, url, data, headers }) => {
   const result = await axios({
